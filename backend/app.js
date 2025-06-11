@@ -14,7 +14,7 @@ app.use(express.json())
 
 
 app.use(express.urlencoded({ extended: true }))
-app.use("/api/create",ShortUrl)
+app.use("/api/create", ShortUrl)
 
 
 
