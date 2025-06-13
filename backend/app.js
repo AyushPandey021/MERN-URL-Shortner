@@ -5,6 +5,7 @@ import { connectDB } from "./src/config/mongo.config.js";
 import ShortUrl from "./src/routes/shortUrl.route.js";
 
 import dotenv from "dotenv"
+
 import { redirectFromShortUrl } from "./src/controller/short-url-controller.js";
 import { errorHandler } from "./src/utils/errorHandler.js";
 dotenv.config("./.env")
@@ -36,6 +37,6 @@ app.get("/:id", redirectFromShortUrl)
 // listen
 app.listen(3000, () => {
   connectDB()
-  console.log(" App is runing⏭️ ");
+  console.log(" App is runing⏭️ http://localhost:3000");
 
 })
