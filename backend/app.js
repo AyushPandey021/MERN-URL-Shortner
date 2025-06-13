@@ -1,7 +1,7 @@
 import express from "express"
 // import cors from "cors"
 import { connectDB } from "./src/config/mongo.config.js";
-
+import cors from "cors";
 import ShortUrl from "./src/routes/shortUrl.route.js";
 
 import dotenv from "dotenv"
@@ -14,7 +14,7 @@ connectDB();
 
 const app = express()
 app.use(express.json())
-
+app.use(cors())
 app.use(errorHandler)
 app.use(express.urlencoded({ extended: true }))
 app.use("/api/create", ShortUrl)

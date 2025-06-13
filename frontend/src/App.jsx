@@ -1,11 +1,17 @@
-import React from 'react'
+import { useState } from "react";
+// import Urlform from "./components/Urlform";
+import HomePage from "./pages/HomePage";
 
-const App = () => {
+function App() {
+ 
+
   return (
-    <div>
-    <div className="text-red-900">My Wish</div>
-    </div>
-  )
+  <div className="">
+
+   <HomePage/>
+  </div> 
+
+  );
 }
 
-export default App
+export default App;
