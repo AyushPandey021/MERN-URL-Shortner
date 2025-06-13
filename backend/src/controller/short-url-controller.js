@@ -1,26 +1,30 @@
 import { createShortUrlWithoutUser } from "../services/short-url-service.js"
 
 
-export const createShortUrl = async (req, res) => {
+export const createShortUrl = async (req, res,next) => {
+  try {
+    
+ 
   const { url } = req.body
   const shortUrl = await createShortUrlWithoutUser(url)
   res.send(process.env.APP_URL + shortUrl)
-  // try {
-  //   await req.db.collection("short_urls").inserOne({
-  //     url,
-  //     shortUrl
-  //   })
-  //   res.status(201).json({
-  //     message: "Short URL created successfully",
-  //     shortUrl: shortUrl
-  //   })
+   } catch (error) {
+    console.log(err);
+    
+    next(err)
+  }
+}
+export const redirectFromShortUrl = async (req, res) => {
+  try {
+  const { id } = req.params
+  const url = await findUrlFromShortUrl(id);
+  if(!url) throw new Error("Short URL not found")
+  res.redirect(url.full_url)    
+  } catch (error) {
+ next(err)
+    
+  }
 
-  // } catch (error) {
-  //   res.status(500).json({
-  //     message: "Error creating short URL",
-  //     error: error.message
-  //   })
 
-  // }
 
 }

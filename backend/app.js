@@ -5,6 +5,8 @@ import { connectDB } from "./src/config/mongo.config.js";
 import ShortUrl from "./src/routes/shortUrl.route.js";
 
 import dotenv from "dotenv"
+import { redirectFromShortUrl } from "./src/controller/short-url-controller.js";
+import { errorHandler } from "./src/utils/errorHandler.js";
 dotenv.config("./.env")
 
 connectDB();
@@ -12,9 +14,10 @@ connectDB();
 const app = express()
 app.use(express.json())
 
-
+app.use(errorHandler)
 app.use(express.urlencoded({ extended: true }))
 app.use("/api/create", ShortUrl)
+app.get("/:id", redirectFromShortUrl)
 
 
 
@@ -31,14 +34,8 @@ app.use("/api/create", ShortUrl)
 
 
 // listen
-app.listen(5000, () => {
+app.listen(3000, () => {
   connectDB()
   console.log(" App is runing⏭️ ");
 
 })
-
-//GET - Redirection
-//Post -Create Short URL
-
-
-// 40min
