@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 // import { createShortUrl } from '../api/shortUrl.api'
 import { useSelector } from 'react-redux'
-// import { QueryClient } from '@tanstack/react-query'
-import { queryClient } from '../main'
+import { QueryClient } from '@tanstack/react-query'
+// import { queryClient } from '../main'
+import { createShortUrl } from '../api/shorturl_api'
 
 const UrlForm = () => {
 
@@ -17,7 +18,7 @@ const UrlForm = () => {
     try {
       const shortUrl = await createShortUrl(url, customSlug)
       setShortUrl(shortUrl)
-      queryClient.invalidateQueries({ queryKey: ['userUrls'] })
+      QueryClient.invalidateQueries({ queryKey: ['userUrls'] })
       setError(null)
     } catch (err) {
       setError(err.message)
