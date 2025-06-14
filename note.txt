@@ -1,0 +1,14 @@
+stateFull Auth = > Stateful auth ka matlab hai ki server user ki login ya authentication ki information apne paas (server side) store karta hai, jaise ki session ya database me. Jab bhi user koi request bhejta hai, server us session ya stored data ko check karta hai ki user authenticated hai ya nahi.
+
+Ek example: Jab aap login karte ho, server aapko ek session ID deta hai (cookie ke through), aur server apne paas us session ID ke saath user ki details store kar leta hai. Jab tak session valid hai, aap login maane jaate ho.
+
+Short me:  
+**Stateful auth me server user ki authentication state ko yaad rakhta hai.**
+
+token=> jsonwebtoken - backend username  email  password
+
+
+
+
+
+ time is 3:10 min 
