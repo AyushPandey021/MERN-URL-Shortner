@@ -5,7 +5,7 @@ import cors from "cors";
 import ShortUrl from "./src/routes/shortUrl.route.js";
 
 import dotenv from "dotenv"
-
+import authRotes from "./src/routes/auth.routes.js"
 import { redirectFromShortUrl } from "./src/controller/short-url-controller.js";
 import { errorHandler } from "./src/utils/errorHandler.js";
 dotenv.config("./.env")
@@ -17,6 +17,7 @@ app.use(express.json())
 app.use(cors())
 app.use(errorHandler)
 app.use(express.urlencoded({ extended: true }))
+app.use("/api/auth", authRotes)
 app.use("/api/create", ShortUrl)
 app.get("/:id", redirectFromShortUrl)
 

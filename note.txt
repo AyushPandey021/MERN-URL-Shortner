@@ -11,4 +11,3 @@ token=> jsonwebtoken - backend username  email  password
 
 
 
- time is 3:10 min 
