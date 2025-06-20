@@ -31,6 +31,7 @@ app.get("/:id", redirectFromShortUrl)
 
 
 
+console.log("mongodb:",process.env.MONGO_URL);
 
 
 

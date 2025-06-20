@@ -1,4 +1,5 @@
 import urlSchema from '../models/shortUrl.model.js'
+import { generateNanoId } from '../utils/helper.js'
 
 export const saveShortUrl = async (shortUrl, longUrl, userId) => {
   try {
@@ -28,5 +29,6 @@ export const getShortUrl = async (shortUrl) => {
 }
 
 
-// 1:45 time 
-
+export const getCustomShortUrl = async (slug)=>{
+  return await urlSchema.findOne({short_url: slug})
+}
