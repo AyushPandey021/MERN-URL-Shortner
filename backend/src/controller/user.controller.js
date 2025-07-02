@@ -1,4 +1,4 @@
-import wrapAsync from "../utils/tryCatchWrapper.js"
+import wrapAsync from "../utils/tryCatchWapper.js"
 import { getAllUserUrlsDao } from "../dao/user.dao.js"
 
 export const getAllUserUrls = wrapAsync(async (req, res) => {
