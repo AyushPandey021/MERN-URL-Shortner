@@ -11,7 +11,8 @@ import cors from "cors"
 import { attachUser } from "./src/utils/attchUser.js";
 import cookieParser from "cookie-parser"
 
-dotenv.config("./.env")
+dotenv.config();
+
 
 const app = express();
 
